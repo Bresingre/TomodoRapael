@@ -45,7 +45,7 @@ struct Tasks: Identifiable {
     
     static var testData = [
         Tasks(title: "Boire un café", isCompleted: false, image: "", category: .relax, description: "boire un café", date: Date()),
-        Tasks(title: "se laver", isCompleted: false, image: "", category: .hygiene, description: "ne pas fondre", date: Date()),
-        Tasks(title: "nager", isCompleted: false, image: "", category: .Sport, description: "swimming", date: Date())
+        Tasks(title: "Dormir", isCompleted: false, image: "", category: .hygiene, description: "ne pas fondre", date: Date()),
+        Tasks(title: "Lambda", isCompleted: false, image: "", category: .lambda, description: "swimming", date: Date())
     ]
 }
