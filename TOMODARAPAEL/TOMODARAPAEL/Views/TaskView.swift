@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct TaskView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            RoundedRectangle(cornerRadius: 25)
+                .fill(.orange)
+            
+            RoundedRectangle(cornerRadius: 25)
+                .fill(.blue)
+        }
     }
+    
 }
 
 struct TaskView_Previews: PreviewProvider {
