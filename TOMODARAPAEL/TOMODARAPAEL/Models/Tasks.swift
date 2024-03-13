@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum Category: String, CaseIterable {
+enum Category: String, CaseIterable, Identifiable {
     case Sport = "Sport"
     case hygiene = "hygiene"
     case lambda = "lambda"
@@ -29,6 +29,8 @@ enum Category: String, CaseIterable {
                 return Color.gray
             }
         }
+    
+    var id: String {self.rawValue}
 }
 
 struct Tasks: Identifiable {
