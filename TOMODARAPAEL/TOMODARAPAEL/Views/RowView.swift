@@ -2,9 +2,8 @@
 //  RowView.swift
 //  TodoList
 //
-//  Created by halm robin on 31/01/2024.
+//  Created by Vieux-Melchior Victor on 31/01/2024.
 //
-
 import SwiftUI
 
 struct RowView: View {
@@ -22,15 +21,24 @@ struct RowView: View {
                 Text(task.title)
                 Spacer()
             }
+            .font(.title2)
+            .padding(.vertical, 8)
             HStack {
                 Text(dateFormatter.string(from: task.date))
+                Spacer()
                 Image(systemName: task.isCompleted ? "checkmark.square" : "square")
-                    .foregroundColor(task.isCompleted ? .green : .red)
-                
+                    .foregroundColor(task.isCompleted ? .white : .black)
+                    .font(.title)
+                Spacer()
             }
         }
-        .font(.title2)
-        .padding(.vertical, 8)
+        .background(task.category.color())
+        .cornerRadius(10)
+        .padding(.pi)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.black, lineWidth:7)
+        )
     }
 }
 
