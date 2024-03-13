@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Category: String, CaseIterable, Identifiable {
-    case Sport = "Sport"
+    case sport = "sport"
     case hygiene = "hygiene"
     case lambda = "lambda"
     case relax = "relax"
@@ -17,7 +17,7 @@ enum Category: String, CaseIterable, Identifiable {
     
     func color() -> Color {
             switch self {
-            case .Sport:
+            case .sport:
                 return Color.blue
             case .hygiene:
                 return Color.green
@@ -46,6 +46,8 @@ struct Tasks: Identifiable {
     static var testData = [
         Tasks(title: "Boire un café", isCompleted: false, image: "", category: .relax, description: "boire un café", date: Date()),
         Tasks(title: "Dormir", isCompleted: false, image: "", category: .hygiene, description: "ne pas fondre", date: Date()),
-        Tasks(title: "Lambda", isCompleted: false, image: "", category: .lambda, description: "swimming", date: Date())
+        Tasks(title: "Lambda", isCompleted: false, image: "", category: .lambda, description: "swimming", date: Date()),
+        Tasks(title: "Lambda", isCompleted: false, image: "", category: .autre, description: "swimming", date: Date()),
+        Tasks(title: "Lambda", isCompleted: false, image: "", category: .sport, description: "swimming", date: Date())
     ]
 }
