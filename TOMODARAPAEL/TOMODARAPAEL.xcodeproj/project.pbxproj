@@ -12,7 +12,7 @@
 		D9CE99BC2B987AD900A05ABE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9CE99BB2B987AD900A05ABE /* Preview Assets.xcassets */; };
 		D9CE99C62B987B3A00A05ABE /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99C52B987B3A00A05ABE /* Tasks.swift */; };
 		D9CE99CB2B987B6400A05ABE /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99C82B987B6400A05ABE /* AddTaskView.swift */; };
-		D9CE99CC2B987B6400A05ABE /* TomodoRapaelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99C92B987B6400A05ABE /* TomodoRapaelView.swift */; };
+		D9CE99CC2B987B6400A05ABE /* RappelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99C92B987B6400A05ABE /* RappelView.swift */; };
 		D9CE99CD2B987B6400A05ABE /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99CA2B987B6400A05ABE /* RowView.swift */; };
 		D9CE99D02B987BCD00A05ABE /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99CF2B987BCD00A05ABE /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -24,7 +24,7 @@
 		D9CE99BB2B987AD900A05ABE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D9CE99C52B987B3A00A05ABE /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		D9CE99C82B987B6400A05ABE /* AddTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
-		D9CE99C92B987B6400A05ABE /* TomodoRapaelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TomodoRapaelView.swift; sourceTree = "<group>"; };
+		D9CE99C92B987B6400A05ABE /* RappelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappelView.swift; sourceTree = "<group>"; };
 		D9CE99CA2B987B6400A05ABE /* RowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		D9CE99CF2B987BCD00A05ABE /* TaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +90,7 @@
 			children = (
 				D9CE99C82B987B6400A05ABE /* AddTaskView.swift */,
 				D9CE99CA2B987B6400A05ABE /* RowView.swift */,
-				D9CE99C92B987B6400A05ABE /* TomodoRapaelView.swift */,
+				D9CE99C92B987B6400A05ABE /* RappelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 				D9CE99D02B987BCD00A05ABE /* TaskViewModel.swift in Sources */,
 				D9CE99CD2B987B6400A05ABE /* RowView.swift in Sources */,
 				D9CE99C62B987B3A00A05ABE /* Tasks.swift in Sources */,
-				D9CE99CC2B987B6400A05ABE /* TomodoRapaelView.swift in Sources */,
+				D9CE99CC2B987B6400A05ABE /* RappelView.swift in Sources */,
 				D9CE99CB2B987B6400A05ABE /* AddTaskView.swift in Sources */,
 				D9CE99B52B987AD800A05ABE /* TOMODARAPAELApp.swift in Sources */,
 			);

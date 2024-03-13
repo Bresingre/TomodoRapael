@@ -11,7 +11,7 @@ import SwiftUI
 struct TOMODARAPAELApp: App {
     var body: some Scene {
         WindowGroup {
-            TomodoRapael()
+            Rappel()
                 .environmentObject(TaskViewModel())
         }
     }
