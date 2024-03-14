@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53AAEC212BA31F4C00FB8EED /* TomodoRapaelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AAEC202BA31F4C00FB8EED /* TomodoRapaelView.swift */; };
+		53AAEC252BA3245700FB8EED /* Rappel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AAEC242BA3245700FB8EED /* Rappel.swift */; };
 		D9345C822BA1B5BD001CEA4C /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9345C812BA1B5BD001CEA4C /* TaskView.swift */; };
 		D9345C842BA1B675001CEA4C /* LegendeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9345C832BA1B675001CEA4C /* LegendeView.swift */; };
 		D9CE99B52B987AD800A05ABE /* TOMODARAPAELApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99B42B987AD800A05ABE /* TOMODARAPAELApp.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		53AAEC202BA31F4C00FB8EED /* TomodoRapaelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TomodoRapaelView.swift; sourceTree = "<group>"; };
+		53AAEC242BA3245700FB8EED /* Rappel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rappel.swift; sourceTree = "<group>"; };
 		D9345C812BA1B5BD001CEA4C /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		D9345C832BA1B675001CEA4C /* LegendeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendeView.swift; sourceTree = "<group>"; };
 		D9CE99B12B987AD800A05ABE /* TOMODARAPAEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOMODARAPAEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +99,7 @@
 				D9CE99C82B987B6400A05ABE /* AddTaskView.swift */,
 				D9CE99CA2B987B6400A05ABE /* RowView.swift */,
 				D9345C832BA1B675001CEA4C /* LegendeView.swift */,
+				53AAEC242BA3245700FB8EED /* Rappel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				D9345C822BA1B5BD001CEA4C /* TaskView.swift in Sources */,
 				D9CE99CD2B987B6400A05ABE /* RowView.swift in Sources */,
 				53AAEC212BA31F4C00FB8EED /* TomodoRapaelView.swift in Sources */,
+				53AAEC252BA3245700FB8EED /* Rappel.swift in Sources */,
 				D9345C842BA1B675001CEA4C /* LegendeView.swift in Sources */,
 				D9CE99C62B987B3A00A05ABE /* Tasks.swift in Sources */,
 				D9CE99CB2B987B6400A05ABE /* AddTaskView.swift in Sources */,
