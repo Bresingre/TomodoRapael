@@ -1,50 +1,39 @@
-//
-//  TaskView.swift
-//  TOMODARAPAEL
-//
-//  Created by joue axel on 13/03/2024.
-//
-
 import SwiftUI
 
 struct TaskView: View {
+    let tasks = Tasks.testData
     
     var body: some View {
-        VStack{
-            HStack{
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.orange)
-                    .padding(10)
-                
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.blue)
-                    .padding(10)
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                ForEach(tasks) { task in
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(task.category.color())
+                        .frame(width: 150, height: 200)
+                        .padding(10)
+                        .overlay(
+                            VStack {
+                                Text(task.title)
+                                    .padding(2)
+                                HStack{
+                                    Text(task.category.rawValue)
+                                    Text(task.date, style: .time)
+                                }
+                                .padding(2)
+                                Text(task.isCompleted ? "Fait" : "Pas fait")
+                                    .padding(2)
+                                Text(task.description)
+                                    .padding(2)
+                            }
+                        )
+                }
             }
-            
-            
-            HStack{
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.gray)
-                    .padding(10)
-                
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.green)
-                    .padding(10)
-            }
-            
-            HStack{
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.gray)
-                    .padding(10)
-                
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.green)
-                    .padding(10)
-            }
+            .padding(10)
         }
     }
-    
 }
+
+
 
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
