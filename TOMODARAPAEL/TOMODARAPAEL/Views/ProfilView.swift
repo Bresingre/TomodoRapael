@@ -51,6 +51,18 @@ struct ProfilView: View {
                 Text("Sport")
                 Circle()
                     .frame(width: 15, height: 15)
+                Circle()
+                    .frame(width: 15, height: 15)
+                Circle()
+                    .frame(width: 15, height: 15)
+                Circle()
+                    .frame(width: 15, height: 15)
+                Circle()
+                    .frame(width: 15, height: 15)
+                Circle()
+                    .frame(width: 15, height: 15)
+                Circle()
+                    .frame(width: 15, height: 15)
             }
             
         }
