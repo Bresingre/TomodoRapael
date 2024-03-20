@@ -17,13 +17,18 @@ struct TaskView: View {
                                 VStack {
                                     Text(task.title)
                                         .padding(2)
-                                    HStack{
+                                        .font(.title3)
                                         Text(task.category.rawValue)
-                                        Text(task.date, style: .date)
-                                    }
-                                    .padding(2)
-                                    Text(task.isCompleted ? "Fait" : "Pas fait")
                                         .padding(2)
+                                        Text(task.date, style: .date)
+                                    .padding(2)
+                                    HStack {
+                                        Text(task.isCompleted ? "Fait" : "Pas fait")
+                                            .padding(2)
+                                        Circle()
+                                            .fill(task.isCompleted ? Color.green : Color.red)
+                                            .frame(width: 10, height: 10)
+                                    }
                                     Text(task.description)
                                         .padding(2)
                                 }
