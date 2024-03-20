@@ -18,7 +18,7 @@ struct TaskView: View {
                                         .padding(2)
                                     HStack{
                                         Text(task.category.rawValue)
-                                        Text(task.date, style: .time)
+                                        Text(task.date, style: .date)
                                     }
                                     .padding(2)
                                     Text(task.isCompleted ? "Fait" : "Pas fait")
