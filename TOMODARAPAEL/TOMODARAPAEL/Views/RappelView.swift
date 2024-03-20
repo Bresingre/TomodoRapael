@@ -1,8 +1,8 @@
 //
-//  Rappel.swift
-//  TOMODARAPAEL
+//  ContentView.swift
+//  TodoList
 //
-//  Created by joue axel on 14/03/2024.
+//  Created by Vieux-Melchior Victor on 31/01/2024.
 //
 import SwiftUI
 
@@ -31,7 +31,6 @@ struct Rappel: View {
                         .font(.headline)
                         .foregroundColor(.primary)
                         .padding()
-                        .background(Color.white) // Add white background here
                     ForEach(Category.allCases) { category in
                         HStack {
                             Image(systemName: "largecircle.fill.circle" )
@@ -39,7 +38,6 @@ struct Rappel: View {
                                 .font(.title)
                             Text(category.rawValue)
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
                         }
                     }
                     .padding(.trailing, 10)
