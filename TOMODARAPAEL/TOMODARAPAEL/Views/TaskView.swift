@@ -10,12 +10,37 @@ import SwiftUI
 struct TaskView: View {
     
     var body: some View {
-        HStack{
-            RoundedRectangle(cornerRadius: 25)
-                .fill(.orange)
+        VStack{
+            HStack{
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.orange)
+                    .padding(10)
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.blue)
+                    .padding(10)
+            }
             
-            RoundedRectangle(cornerRadius: 25)
-                .fill(.blue)
+            
+            HStack{
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.gray)
+                    .padding(10)
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.green)
+                    .padding(10)
+            }
+            
+            HStack{
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.gray)
+                    .padding(10)
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.green)
+                    .padding(10)
+            }
         }
     }
     
