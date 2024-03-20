@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Rappel: View {
+struct RappelView: View {
     
     @EnvironmentObject var taskViewModel: TaskViewModel
     
@@ -50,7 +50,6 @@ struct Rappel: View {
                     RoundedRectangle(cornerRadius: 4)
                         .stroke(Color.black, lineWidth:2)
                 )
-                Navbar()
             }
         }
     }
@@ -58,6 +57,6 @@ struct Rappel: View {
 
 struct RappelView_Previews: PreviewProvider {
     static var previews: some View {
-        Rappel().environmentObject(TaskViewModel())
+        RappelView().environmentObject(TaskViewModel())
     }
 }

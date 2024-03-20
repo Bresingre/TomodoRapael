@@ -1,21 +1,11 @@
 //
-//  TOMODARAPAELApp.swift
+//  ContentView.swift
 //  TOMODARAPAEL
 //
-//  Created by vieux-melchior victor on 06/03/2024.
+//  Created by vieux-melchior victor on 20/03/2024.
 //
 
 import SwiftUI
-
-@main
-struct TOMODARAPAELApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(TaskViewModel())
-        }
-    }
-}
 
 struct ContentView: View {
     var body: some View {
@@ -54,5 +44,11 @@ struct ShareView: View {
 struct PetView: View {
     var body: some View {
         Text("Pet View")
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
