@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct TaskView: View {
+    @EnvironmentObject var taskViewModel: TaskViewModel
     let tasks = Tasks.testData
     
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
-                    ForEach(tasks) { task in
+                    ForEach(taskViewModel.tasks) { task in
                         RoundedRectangle(cornerRadius: 25)
                             .fill(task.category.color())
                             .frame(width: 150, height: 200)
@@ -34,7 +35,7 @@ struct TaskView: View {
             .navigationTitle("Tasks")
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink("Add", destination: AddTaskView())
+                    NavigationLink("Add", destination: AddTaskView().environmentObject(taskViewModel))
                 }
             }
         }
@@ -44,5 +45,6 @@ struct TaskView: View {
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
         TaskView()
+            .environmentObject(TaskViewModel())
     }
 }
