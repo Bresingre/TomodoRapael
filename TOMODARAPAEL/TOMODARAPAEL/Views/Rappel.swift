@@ -15,7 +15,7 @@ struct RappelView: View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
                 List {
-                    ForEach(taskViewModel.tasks) { task in
+                    ForEach(taskViewModel.tasks.filter { Calendar.current.isDateInToday($0.date) }) { task in
                         RowView(task: task)
                             .onTapGesture {
                                 taskViewModel.updateItem(task: task)
@@ -54,7 +54,19 @@ struct RappelView: View {
             }
         }
         .onAppear {
+            requestNotificationPermissions()
             checkPendingNotifications()
+            scheduleNotificationsForPendingTasks()
+        }
+    }
+    
+    func requestNotificationPermissions() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("Notification permission granted")
+            } else {
+                print("Notification permission denied: \(error?.localizedDescription ?? "")")
+            }
         }
     }
     
@@ -86,6 +98,8 @@ struct RappelView: View {
                 center.add(request) { (error) in
                     if let error = error {
                         print("Error scheduling notification: \(error.localizedDescription)")
+                    } else {
+                        print("Notification scheduled for task: \(task.title)")
                     }
                 }
             }
