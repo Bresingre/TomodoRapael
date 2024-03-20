@@ -31,7 +31,7 @@ struct CircleButton: View {
             .clipShape(Circle())
     }
 }
-
+ 
 struct Navbar: View {
     var body: some View {
         HStack(spacing: 10) {
