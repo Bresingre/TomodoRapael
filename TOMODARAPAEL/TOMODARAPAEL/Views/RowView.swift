@@ -23,6 +23,7 @@ struct RowView: View {
             }
             .font(.title2)
             .padding(.vertical, 8)
+            .padding(.horizontal)
             HStack {
                 Text(dateFormatter.string(from: task.date))
                 Spacer()
@@ -31,14 +32,11 @@ struct RowView: View {
                     .font(.title)
                 Spacer()
             }
+            .padding(.horizontal)
         }
         .background(task.category.color())
         .cornerRadius(10)
         .padding(.pi)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.black, lineWidth:7)
-        )
     }
 }
 

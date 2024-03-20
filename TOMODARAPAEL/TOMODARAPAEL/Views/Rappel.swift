@@ -31,7 +31,6 @@ struct Rappel: View {
                         .font(.headline)
                         .foregroundColor(.primary)
                         .padding()
-                        .background(Color.white) // Add white background here
                     ForEach(Category.allCases) { category in
                         HStack {
                             Image(systemName: "largecircle.fill.circle" )
@@ -45,6 +44,12 @@ struct Rappel: View {
                     .padding(.trailing, 10)
                 }
                 .padding()
+                .background(Color.white)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Color.black, lineWidth:2)
+                )
             }
         }
     }
