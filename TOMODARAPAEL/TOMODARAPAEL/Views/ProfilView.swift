@@ -11,24 +11,47 @@ struct ProfilView: View {
     var body: some View {
         VStack{
             Image(systemName: "person.circle.fill")
+                .resizable()
+                .frame(width: 50, height: 50)
             Text("Manurrrrrrrrrrrrrel")
+                .padding(8)
+                .font(.title2)
+                .fontWeight(.bold)
             
             
             Divider()
                 .background(Color.gray)
             
             Text("Succès")
-                .padding(5)
+                .font(.title2)
+                .fontWeight(.bold)
             HStack{
                 Image(systemName: "cup.and.saucer.fill" )
                 Text("1000 café")
             }
+            .padding(8)
             
             Divider()
                 .background(Color.gray)
             
             Text("Recap hebdo")
-                
+                .font(.title2)
+                .fontWeight(.bold)
+            HStack{
+                Text("Lu")
+                Text("Ma")
+                Text("Me")
+                Text("Je")
+                Text("Ve")
+                Text("Sa")
+                Text("Di")
+            }
+            
+            HStack{
+                Text("Sport")
+                Circle()
+                    .frame(width: 15, height: 15)
+            }
             
         }
         

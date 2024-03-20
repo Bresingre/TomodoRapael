@@ -30,6 +30,7 @@ struct TaskView: View {
             }
             .padding(10)
         }
+        Navbar()
     }
 }
 
