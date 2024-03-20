@@ -34,7 +34,7 @@ struct LegendeView_Previews: PreviewProvider {
     static var previews: some View {
         LegendeView(category: .relax)
             .previewLayout(.sizeThatFits)
-        LegendeView(category: .Sport)
+        LegendeView(category: .sport)
             .previewLayout(.sizeThatFits)
     }
 }
