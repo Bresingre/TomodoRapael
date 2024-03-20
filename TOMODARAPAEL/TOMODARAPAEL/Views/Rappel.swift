@@ -5,8 +5,9 @@
 //  Created by joue axel on 14/03/2024.
 //
 import SwiftUI
+import UserNotifications
 
-struct Rappel: View {
+struct RappelView: View {
     
     @EnvironmentObject var taskViewModel: TaskViewModel
     
@@ -14,7 +15,7 @@ struct Rappel: View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
                 List {
-                    ForEach(taskViewModel.tasks) { task in
+                    ForEach(taskViewModel.tasks.filter { Calendar.current.isDateInToday($0.date) }) { task in
                         RowView(task: task)
                             .onTapGesture {
                                 taskViewModel.updateItem(task: task)
@@ -50,7 +51,57 @@ struct Rappel: View {
                     RoundedRectangle(cornerRadius: 4)
                         .stroke(Color.black, lineWidth:2)
                 )
-                Navbar()
+            }
+        }
+        .onAppear {
+            requestNotificationPermissions()
+            checkPendingNotifications()
+            scheduleNotificationsForPendingTasks()
+        }
+    }
+    
+    func requestNotificationPermissions() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("Notification permission granted")
+            } else {
+                print("Notification permission denied: \(error?.localizedDescription ?? "")")
+            }
+        }
+    }
+    
+    func checkPendingNotifications() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            for request in requests {
+                print("Pending Notification: \(request.identifier)")
+            }
+        }
+    }
+    
+    func scheduleNotificationsForPendingTasks() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Pending Task Reminder"
+        content.sound = UNNotificationSound.default
+        
+        let today = Calendar.current.startOfDay(for: Date())
+        
+        for task in taskViewModel.tasks {
+            if task.date < today && !task.isCompleted {
+                content.body = "You have a pending task: \(task.title)"
+                let triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: task.date)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+                let request = UNNotificationRequest(identifier: task.id.uuidString, content: content, trigger: trigger)
+                center.add(request) { (error) in
+                    if let error = error {
+                        print("Error scheduling notification: \(error.localizedDescription)")
+                    } else {
+                        print("Notification scheduled for task: \(task.title)")
+                    }
+                }
             }
         }
     }
@@ -58,6 +109,6 @@ struct Rappel: View {
 
 struct RappelView_Previews: PreviewProvider {
     static var previews: some View {
-        Rappel().environmentObject(TaskViewModel())
+        RappelView().environmentObject(TaskViewModel())
     }
 }

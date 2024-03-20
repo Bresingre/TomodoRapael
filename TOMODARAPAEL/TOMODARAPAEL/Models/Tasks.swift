@@ -42,7 +42,6 @@ struct Tasks: Identifiable {
     var description: String
     var date: Date
     
-    
     static var testData = [
         Tasks(title: "Boire un café", isCompleted: false, image: "", category: .relax, description: "boire un café", date: Date()),
         Tasks(title: "Dormir", isCompleted: false, image: "", category: .hygiene, description: "ne pas fondre", date: Date()),

@@ -8,11 +8,11 @@ import SwiftUI
 
 struct AddTaskView: View {
     
-    @State var title: String = ""
-    @State var selectedImage: UIImage?
-    @State var category: Category = .lambda
-    @State var description: String = ""
-    @State  var date: Date = Date()
+    @State private var title: String = ""
+    @State private var selectedImage: UIImage? = nil
+    @State private var category: Category = .lambda
+    @State private var description: String = ""
+    @State private var date: Date = Date()
     @State private var difficulty: Int = 0
     
     @EnvironmentObject var taskViewModel: TaskViewModel
@@ -20,30 +20,11 @@ struct AddTaskView: View {
     
     let categories: [Category] = Category.allCases
     
-    init() {}
-    
     var body: some View {
         VStack {
-            HStack {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "xmark")
-                        .padding()
-                }
-                
-                Spacer()
-                
-                Button(action: {
-                    saveTask()
-                }) {
-                    Text("Save")
-                        .padding()
-                }
-            }
             TextField("Task name", text: $title)
                 .padding()
-            HStack{
+            HStack {
                 if let selectedImage = selectedImage {
                     Image(uiImage: selectedImage)
                         .resizable()
@@ -55,17 +36,16 @@ struct AddTaskView: View {
                         let imagePicker = UIImagePickerController()
                         imagePicker.delegate = makeCoordinator()
                         imagePicker.sourceType = .photoLibrary
+                        presentationMode.wrappedValue.dismiss()
                     }) {
-                        Text("Import picture")
+                        Text("Import picture (WIP)")
                             .padding()
                     }
                 }
-                
                 DatePicker("", selection: $date, in: Date()..., displayedComponents: [.date])
                     .padding(.vertical)
-
             }
-                Picker("Category", selection: $category) {
+            Picker("Category", selection: $category) {
                 ForEach(categories, id: \.self) { category in
                     Text(category.rawValue.capitalized).tag(category)
                 }
@@ -86,14 +66,38 @@ struct AddTaskView: View {
             }
             .padding()
             Spacer()
+            Button(action: {
+                saveTask()
+            }) {
+                Text("Save")
+                    .padding()
+                    .font(.headline)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            Spacer()
         }
         .navigationTitle("Add a task")
     }
     
     private func saveTask() {
+        guard !title.isEmpty else {
+            print("Task name is required.")
+            return
+        }
+        guard Calendar.current.isDateInToday(date) || date > Date() else {
+            print("Selected date should be today or a future date.")
+            return
+        }
         let image = selectedImage ?? UIImage(systemName: "photo")!
-        let imageData = image.jpegData(compressionQuality: 0.5)
-        let imageBase64 = imageData?.base64EncodedString() ?? ""
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+            print("Error converting image to data.")
+            return
+        }
+        let imageBase64 = imageData.base64EncodedString()
         taskViewModel.addItem(title: title, image: imageBase64, category: category, description: description, date: date)
         presentationMode.wrappedValue.dismiss()
     }
