@@ -8,81 +8,128 @@ import SwiftUI
 
 struct AddTaskView: View {
     
-    @State var title: String
-    @State var image: String
-    @State var category: Category
-    @State var description: String
-    @State var date: Date
+    @State var title: String = ""
+    @State var selectedImage: UIImage?
+    @State var category: Category = .lambda
+    @State var description: String = ""
+    @State  var date: Date = Date()
+    @State private var difficulty: Int = 0
     
     @EnvironmentObject var taskViewModel: TaskViewModel
     @Environment(\.presentationMode) var presentationMode
     
+    let categories: [Category] = Category.allCases
+    
+    init() {}
+    
     var body: some View {
-        VStack(spacing: 16) {
-            TextField("Enter a task", text: $title)
-                .padding(.horizontal)
-                .frame(height: 55)
-                .background(Color(.systemGray5))
-                .cornerRadius(10)
-            
-            //ImagePickerView(image: $image)
-            
-            //CategoryPickerView(category: $category)
-            
-            // Description Text Field
-            TextEditor(text: $description)
-                .frame(height: 100)
-                .padding(.horizontal)
-                .background(Color(.systemGray5))
-                .cornerRadius(10)
-            
-            // Date Picker
-            DatePicker("Select date", selection: $date, in: Date()..., displayedComponents: [.date])
-                .padding(.horizontal)
-                .background(Color(.systemGray5))
-                .cornerRadius(10)
-            
-            Button {
-                taskViewModel.addItem(title: title, image: image, category: category, description: description, date: date)
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Save")
-                    .font(.headline)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+        VStack {
+            HStack {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "xmark")
+                        .padding()
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    saveTask()
+                }) {
+                    Text("Save")
+                        .padding()
+                }
             }
-            
+            TextField("Task name", text: $title)
+                .padding()
+            HStack{
+                if let selectedImage = selectedImage {
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .padding()
+                } else {
+                    Button(action: {
+                        let imagePicker = UIImagePickerController()
+                        imagePicker.delegate = makeCoordinator()
+                        imagePicker.sourceType = .photoLibrary
+                    }) {
+                        Text("Import picture")
+                            .padding()
+                    }
+                }
+                
+                DatePicker("", selection: $date, in: Date()..., displayedComponents: [.date])
+                    .padding(.vertical)
+
+            }
+                Picker("Category", selection: $category) {
+                ForEach(categories, id: \.self) { category in
+                    Text(category.rawValue.capitalized).tag(category)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.vertical)
+            TextField("Enter description", text: $description)
+                .padding()
+            HStack {
+                ForEach(0..<5) { index in
+                    Button(action: {
+                        difficulty = index + 1
+                    }) {
+                        Image(systemName: index < difficulty ? "star.fill" : "star")
+                            .foregroundColor(index < difficulty ? .yellow : .gray)
+                    }
+                }
+            }
+            .padding()
             Spacer()
         }
-        .padding(16)
         .navigationTitle("Add a task")
+    }
+    
+    private func saveTask() {
+        let image = selectedImage ?? UIImage(systemName: "photo")!
+        let imageData = image.jpegData(compressionQuality: 0.5)
+        let imageBase64 = imageData?.base64EncodedString() ?? ""
+        taskViewModel.addItem(title: title, image: imageBase64, category: category, description: description, date: date)
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct AddTodoView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            AddTaskView(title: "faire un café", image: "", category: .relax, description: "je vais me faire un très bon café", date: Date())
+        NavigationView {
+            AddTaskView()
+                .environmentObject(TaskViewModel())
         }
     }
 }
 
+extension AddTaskView {
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        var parent: AddTaskView
 
+        init(_ parent: AddTaskView) {
+            self.parent = parent
+        }
 
-/*
- at the top left there is a close button
- at the top right, there is a save button
- below there is a HStack
-    in this h stack there is a picture on the left
-    on the right there is a vstack
-        at the top of the vstack there is an input for the date
-        below there is a textfield for the name
-        below there is a selector for the category
- below the hstack there is a textfield for the description
- below
- 
- 
- */
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                parent.selectedImage = image
+            }
+
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+}
