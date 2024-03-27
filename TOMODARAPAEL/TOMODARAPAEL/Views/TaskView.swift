@@ -26,7 +26,7 @@ struct TaskView: View {
                                         Text(task.isCompleted ? "Fait" : "Pas fait")
                                             .padding(2)
                                         Circle()
-                                            .fill(task.isCompleted ? Color.green : Color.red)
+                                            .fill(task.isCompleted ? Color.white : Color.black)
                                             .frame(width: 10, height: 10)
                                     }
                                     Text(task.description)
