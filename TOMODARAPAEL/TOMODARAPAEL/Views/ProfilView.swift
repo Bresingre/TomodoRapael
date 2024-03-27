@@ -85,7 +85,10 @@ struct ProfilView: View {
             .padding(.trailing, 45)
         }
         
-        
+        .onAppear {
+            NotificationManager.requestNotificationPermissions()
+            NotificationManager.scheduleNotificationsForPendingTasks()
+        }
     }
 }
 

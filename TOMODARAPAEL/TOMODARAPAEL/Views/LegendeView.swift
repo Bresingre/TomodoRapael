@@ -27,6 +27,10 @@ struct LegendeView: View {
                 Spacer()
             }
         }
+        .onAppear {
+            NotificationManager.requestNotificationPermissions()
+            NotificationManager.scheduleNotificationsForPendingTasks()
+        }
     }
 }
 

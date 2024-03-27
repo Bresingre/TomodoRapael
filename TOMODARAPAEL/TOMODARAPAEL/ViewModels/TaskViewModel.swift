@@ -9,6 +9,8 @@ import Foundation
 
 class TaskViewModel: ObservableObject {
     
+    static let shared = TaskViewModel()
+    
     @Published var tasks: [Tasks] = []
     
     init() {

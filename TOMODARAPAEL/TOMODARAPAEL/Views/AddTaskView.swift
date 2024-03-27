@@ -81,6 +81,10 @@ struct AddTaskView: View {
             Spacer()
         }
         .navigationTitle("Add a task")
+        .onAppear {
+            NotificationManager.requestNotificationPermissions()
+            NotificationManager.scheduleNotificationsForPendingTasks()
+        }
     }
     
     private func saveTask() {

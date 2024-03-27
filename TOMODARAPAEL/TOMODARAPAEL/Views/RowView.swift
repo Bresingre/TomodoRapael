@@ -37,7 +37,12 @@ struct RowView: View {
         .background(task.category.color())
         .cornerRadius(10)
         .padding(.pi)
+        .onAppear {
+            NotificationManager.requestNotificationPermissions()
+            NotificationManager.scheduleNotificationsForPendingTasks()
+        }
     }
+
 }
 
 struct RowView_Previews: PreviewProvider {

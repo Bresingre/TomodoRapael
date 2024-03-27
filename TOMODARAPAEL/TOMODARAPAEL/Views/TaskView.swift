@@ -44,6 +44,10 @@ struct TaskView: View {
                 }
             }
         }
+        .onAppear {
+            NotificationManager.requestNotificationPermissions()
+            NotificationManager.scheduleNotificationsForPendingTasks()
+        }
     }
 }
 
