@@ -12,6 +12,7 @@
 		53AAEC282BA3286900FB8EED /* Rappel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AAEC272BA3286900FB8EED /* Rappel.swift */; };
 		D9345C842BA1B675001CEA4C /* LegendeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9345C832BA1B675001CEA4C /* LegendeView.swift */; };
 		D94A19732BB41B8E009002B8 /* Horse.png in Resources */ = {isa = PBXBuildFile; fileRef = D94A19722BB41B8D009002B8 /* Horse.png */; };
+		D94A19752BB41EA1009002B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D94A19742BB41EA1009002B8 /* Preview Assets.xcassets */; };
 		D9CE99B52B987AD800A05ABE /* TOMODARAPAELApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99B42B987AD800A05ABE /* TOMODARAPAELApp.swift */; };
 		D9CE99B92B987AD900A05ABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9CE99B82B987AD900A05ABE /* Assets.xcassets */; };
 		D9CE99C62B987B3A00A05ABE /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CE99C52B987B3A00A05ABE /* Tasks.swift */; };
@@ -26,6 +27,7 @@
 		D9345C812BA1B5BD001CEA4C /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		D9345C832BA1B675001CEA4C /* LegendeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendeView.swift; sourceTree = "<group>"; };
 		D94A19722BB41B8D009002B8 /* Horse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Horse.png; sourceTree = "<group>"; };
+		D94A19742BB41EA1009002B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D9CE99B12B987AD800A05ABE /* TOMODARAPAEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOMODARAPAEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CE99B42B987AD800A05ABE /* TOMODARAPAELApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOMODARAPAELApp.swift; sourceTree = "<group>"; };
 		D9CE99B82B987AD900A05ABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		D9CE99BA2B987AD900A05ABE /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D94A19742BB41EA1009002B8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9CE99B92B987AD900A05ABE /* Assets.xcassets in Resources */,
+				D94A19752BB41EA1009002B8 /* Preview Assets.xcassets in Resources */,
 				D94A19732BB41B8E009002B8 /* Horse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
