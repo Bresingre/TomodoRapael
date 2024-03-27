@@ -41,12 +41,13 @@ struct Tasks: Identifiable {
     var category: Category
     var description: String
     var date: Date
-    
+        
     static var testData = [
-        Tasks(title: "Boire un café", isCompleted: false, image: "", category: .relax, description: "boire un café", date: Date()),
-        Tasks(title: "Dormir", isCompleted: false, image: "", category: .hygiene, description: "ne pas fondre", date: Date()),
-        Tasks(title: "Lambda", isCompleted: false, image: "", category: .lambda, description: "swimming", date: Date()),
-        Tasks(title: "Lambda", isCompleted: false, image: "", category: .autre, description: "swimming", date: Date()),
-        Tasks(title: "Lambda", isCompleted: false, image: "", category: .sport, description: "swimming", date: Date())
+        Tasks(title: "Boire un café", isCompleted: false, image: "", category: .relax, description: "boire un café", date: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)!),
+        Tasks(title: "Dormir", isCompleted: false, image: "", category: .hygiene, description: "ne pas fondre", date: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)!),
+        Tasks(title: "Lambda", isCompleted: false, image: "", category: .lambda, description: "swimming", date: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)!),
+        Tasks(title: "Lambda", isCompleted: false, image: "", category: .autre, description: "swimming", date: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)!),
+        Tasks(title: "Lambda", isCompleted: false, image: "", category: .sport, description: "swimming", date: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 1, to: Date())!)!)
     ]
 }
+

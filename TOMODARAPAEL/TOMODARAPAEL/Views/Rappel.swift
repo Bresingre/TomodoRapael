@@ -55,8 +55,6 @@ struct RappelView: View {
         }
         .onAppear {
             requestNotificationPermissions()
-            checkPendingNotifications()
-            scheduleNotificationsForPendingTasks()
         }
     }
     
@@ -64,16 +62,9 @@ struct RappelView: View {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
                 print("Notification permission granted")
+                scheduleNotificationsForPendingTasks()
             } else {
                 print("Notification permission denied: \(error?.localizedDescription ?? "")")
-            }
-        }
-    }
-    
-    func checkPendingNotifications() {
-        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-            for request in requests {
-                print("Pending Notification: \(request.identifier)")
             }
         }
     }
@@ -84,23 +75,24 @@ struct RappelView: View {
         center.removeAllPendingNotificationRequests()
         
         let content = UNMutableNotificationContent()
-        content.title = "Pending Task Reminder"
         content.sound = UNNotificationSound.default
         
-        let today = Calendar.current.startOfDay(for: Date())
-        
         for task in taskViewModel.tasks {
-            if task.date < today && !task.isCompleted {
-                content.body = "You have a pending task: \(task.title)"
-                let triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: task.date)
-                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-                let request = UNNotificationRequest(identifier: task.id.uuidString, content: content, trigger: trigger)
-                center.add(request) { (error) in
-                    if let error = error {
-                        print("Error scheduling notification: \(error.localizedDescription)")
-                    } else {
-                        print("Notification scheduled for task: \(task.title)")
-                    }
+            guard !task.isCompleted else { continue } // Skip completed tasks
+            
+            let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: Calendar.current.date(byAdding: .hour, value: -1, to: task.date)!)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+            
+            content.title = "Task Reminder"
+            content.body = "You have a task due: \(task.title) at \(task.date)"
+            
+            let request = UNNotificationRequest(identifier: task.id.uuidString, content: content, trigger: trigger)
+            
+            center.add(request) { (error) in
+                if let error = error {
+                    print("Error scheduling notification: \(error.localizedDescription)")
+                } else {
+                    print("Notification scheduled for task: \(task.title) at triggerdate : \(triggerDate) ,date :  \(task.date) ")
                 }
             }
         }
