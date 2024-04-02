@@ -83,6 +83,11 @@ struct ProfilView: View {
                 
             }
             .padding(.trailing, 45)
+
+            TaskChartView()
+                .environmentObject(taskViewModel)
+                .padding()
+            
         }
         
         .onAppear {
