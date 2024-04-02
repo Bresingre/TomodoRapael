@@ -22,11 +22,11 @@ struct TaskChartView: View {
         // Créer le graphique avec les données
         Chart {
             BarMark(
-                x: .value("Complétées", completedTasksCount),
+                x: .value("Complétées", "complètes"),
                 y: .value("Nombre", completedTasksCount)
             )
             BarMark(
-                 x: .value("Non Complétées", incompleteTasksCount),
+                 x: .value("Non Complétées", "incomplètes"),
                  y: .value("Nombre", incompleteTasksCount)
             )
         }

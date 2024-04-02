@@ -35,55 +35,9 @@ struct ProfilView: View {
             Divider()
                 .background(Color.gray)
             
-            Text("Recap hebdo")
+            Text("Recap journalier")
                 .font(.title2)
                 .fontWeight(.bold)
-
-            HStack {
-                Text("Lu")
-                    .padding(1)
-                Text("Ma")
-                    .padding(1)
-                Text("Me")
-                    .padding(1)
-                Text("Je")
-                    .padding(1)
-                Text("Ve")
-                    .padding(1)
-                Text("Sa")
-                    .padding(1)
-                Text("Di")
-                    .padding(1)
-            }
-
-            HStack {
-                Text("Sport")
-                    .padding(4)
-                
-                    Circle()
-                        .frame(width: 15, height: 15)
-                        .padding(4)
-                    Circle()
-                        .frame(width: 15, height: 15)
-                        .padding(4)
-                    Circle()
-                        .frame(width: 15, height: 15)
-                        .padding(4)
-                    Circle()
-                        .frame(width: 15, height: 15)
-                        .padding(4)
-                    Circle()
-                        .frame(width: 15, height: 15)
-                        .padding(4)
-                    Circle()
-                        .frame(width: 15, height: 15)
-                        .padding(4)
-                    Circle()
-                        .frame(width: 15, height: 15)
-                        .padding(4)
-                
-            }
-            .padding(.trailing, 45)
 
             TaskChartView()
                 .environmentObject(taskViewModel)
