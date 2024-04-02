@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		539FFDEE2BAAEBFC00BD4CE4 /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539FFDED2BAAEBFC00BD4CE4 /* ProfilView.swift */; };
+		53A9BC0E2BBBFC9400616D86 /* TaskChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A9BC0D2BBBFC9400616D86 /* TaskChartView.swift */; };
 		53AAEC262BA3278500FB8EED /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9345C812BA1B5BD001CEA4C /* TaskView.swift */; };
 		53AAEC282BA3286900FB8EED /* Rappel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AAEC272BA3286900FB8EED /* Rappel.swift */; };
 		D9345C842BA1B675001CEA4C /* LegendeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9345C832BA1B675001CEA4C /* LegendeView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		539FFDED2BAAEBFC00BD4CE4 /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
+		53A9BC0D2BBBFC9400616D86 /* TaskChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskChartView.swift; sourceTree = "<group>"; };
 		53AAEC272BA3286900FB8EED /* Rappel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rappel.swift; sourceTree = "<group>"; };
 		D9345C812BA1B5BD001CEA4C /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		D9345C832BA1B675001CEA4C /* LegendeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendeView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D9CE99CA2B987B6400A05ABE /* RowView.swift */,
 				D9345C832BA1B675001CEA4C /* LegendeView.swift */,
 				53AAEC272BA3286900FB8EED /* Rappel.swift */,
+				53A9BC0D2BBBFC9400616D86 /* TaskChartView.swift */,
 				539FFDED2BAAEBFC00BD4CE4 /* ProfilView.swift */,
 			);
 			path = Views;
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A9BC0E2BBBFC9400616D86 /* TaskChartView.swift in Sources */,
 				53AAEC262BA3278500FB8EED /* TaskView.swift in Sources */,
 				D9CE99D02B987BCD00A05ABE /* TaskViewModel.swift in Sources */,
 				D94A19772BB42FE5009002B8 /* NotificationManager.swift in Sources */,

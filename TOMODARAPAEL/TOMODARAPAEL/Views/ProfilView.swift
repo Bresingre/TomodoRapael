@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfilView: View {
+    @EnvironmentObject var taskViewModel: TaskViewModel
     var body: some View {
         VStack{
             Image(systemName: "person.circle.fill")
@@ -100,5 +101,6 @@ struct ProfilView: View {
 struct ProfilView_Previews: PreviewProvider {
     static var previews: some View {
         ProfilView()
+            .environmentObject(TaskViewModel())
     }
 }
